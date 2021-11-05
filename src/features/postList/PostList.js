@@ -3,7 +3,7 @@ import Post from '../post/Post';
 
 export default function PostList({ posts }) {
   return (
-    <section class="sm:w-2/3 m-4 flex-auto">
+    <section class="sm:w-2/3 mx-4 flex-auto">
       {posts.map((post) => {
         return <Post post={post} />;
       })}
