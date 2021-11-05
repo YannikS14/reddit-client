@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Header() {
   return (
-    <header class="shadow-lg">
+    <header class="shadow-lg bg-white">
       <div class="container mx-auto px-4 h-20 flex justify-between items-center">
         <div id="logo" class="flex items-center">
           <img
@@ -10,7 +10,7 @@ export default function Header() {
             src="reddit-logo.svg"
             alt="reddit logo"
           />
-          <h1 class="pl-2">
+          <h1 class="pl-2 text-xl font-semibold">
             <span class="font-bold">Reddit</span> Client
           </h1>
         </div>
