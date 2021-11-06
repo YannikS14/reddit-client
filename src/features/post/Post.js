@@ -35,9 +35,12 @@ export default function Post({ post }) {
         </svg>
       </div>
       <div id="post-content" class="flex-1">
-        <h3 class="text-xl font-semibold">{post.title}</h3>
-        <p class="my-4">{post.content}</p>
-        <hr />
+        <h3 class="mb-4 text-xl font-semibold">{post.title}</h3>
+        {post.image && (
+          <img src={post.image} alt="" class="rounded-md" />
+        )}
+        {post.content && <p class="mt-4">{post.content}</p>}
+        <hr class="mt-4" />
         <div id="post-footer" class="flex justify-between px-8 py-2">
           <div class="font-semibold">{post.postedBy}</div>
           <div>{post.publishDate}</div>
