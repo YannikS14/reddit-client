@@ -1,5 +1,7 @@
 import moment from 'moment';
 import React from 'react';
+import Annotation from '../../assets/Annotation';
+import Arrow from '../../assets/Arrow';
 
 export default function Post({ post }) {
   const kFormatter = (num) => {
@@ -15,38 +17,15 @@ export default function Post({ post }) {
   return (
     <article className="mb-8 p-6 bg-white rounded-md shadow-lg flex">
       <div id="votes" className="pr-6 flex flex-col items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"
-          />
-        </svg>
-        <p>{upvotes}</p>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
-          />
-        </svg>
+        <Arrow className="text-gray-500 hover:text-green-500" />
+        <p className="my-1.5 text-lg font-bold text-gray-500">
+          {upvotes}
+        </p>
+        <Arrow className="text-gray-500 hover:text-red-500 transform rotate-180" />
       </div>
+
       <div id="post-content" className="flex-1">
-        <h3 className="mb-4 text-xl font-semibold">
+        <h3 className="mb-4 text-xl font-semibold text-gray-800">
           {post.data.title}
         </h3>
         {post.data.url && (
@@ -58,23 +37,12 @@ export default function Post({ post }) {
           id="post-footer"
           className="flex justify-between px-8 py-2"
         >
-          <div className="font-semibold">{post.data.author}</div>
-          <div>{postDate}</div>
-          <div className="flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 mr-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-              />
-            </svg>
+          <div className="font-semibold text-gray-800 text-sm">
+            {post.data.author}
+          </div>
+          <div className="text-gray-800 text-sm">{postDate}</div>
+          <div className="flex text-gray-800 text-sm">
+            <Annotation className="mr-1 text-gray-500 hover:text-gray-800" />
             {commentsAmount}
           </div>
         </div>
