@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useState } from 'react';
 import Annotation from '../../assets/Annotation';
 import Arrow from '../../assets/Arrow';
 
@@ -14,14 +14,38 @@ export default function Post({ post }) {
   const upvotes = kFormatter(post.data.ups);
   const commentsAmount = kFormatter(post.data.num_comments);
 
+  const [vote, setVote] = useState('');
+
+  const handleClick = (e) => {
+    console.log(e);
+    vote === e.target.id ? setVote('') : setVote(e.target.id);
+  };
+
   return (
     <article className="mb-8 p-6 bg-white rounded-md shadow-lg flex">
       <div id="votes" className="pr-6 flex flex-col items-center">
-        <Arrow className="text-gray-500 hover:text-green-500" />
+        <button id="upvote" onClick={(e) => handleClick(e)}>
+          <Arrow
+            className={`transform ${
+              vote === 'upvote'
+                ? 'text-green-500 scale-125'
+                : 'text-gray-500 hover:text-green-500'
+            }`}
+          />
+        </button>
         <p className="my-1.5 text-lg font-bold text-gray-500">
           {upvotes}
         </p>
-        <Arrow className="text-gray-500 hover:text-red-500 transform rotate-180" />
+        <button id="downvote" onClick={(e) => handleClick(e)}>
+          <Arrow
+            className={`transform rotate-180 ${
+              vote === 'downvote'
+                ? 'text-red-500 scale-125'
+                : 'text-gray-500 hover:text-red-500'
+            }
+            `}
+          />
+        </button>
       </div>
 
       <div id="post-content" className="flex-1">
@@ -40,9 +64,11 @@ export default function Post({ post }) {
           <div className="font-semibold text-gray-800 text-sm">
             {post.data.author}
           </div>
-          <div className="text-gray-800 text-sm">{postDate}</div>
+          <div className="text-gray-800 text-xs">{postDate}</div>
           <div className="flex text-gray-800 text-sm">
-            <Annotation className="mr-1 text-gray-500 hover:text-gray-800" />
+            <button id="comments">
+              <Annotation className="mr-1 text-gray-500 hover:text-gray-800" />
+            </button>
             {commentsAmount}
           </div>
         </div>
