@@ -52,7 +52,7 @@ export default function Post({ post }) {
         </button>
       </div>
 
-      <div id="post-content" className="flex-1">
+      <div id="post-content" className="flex-1 overflow-hidden">
         <h3 className="mb-4 text-xl font-semibold text-gray-800">
           {post.data.title}
         </h3>
