@@ -16,7 +16,7 @@ export default function Posts() {
   }, [dispatch, activeSubreddit]);
 
   return (
-    <section className="sm:w-2/3 mx-4 flex-auto">
+    <section className="lg:w-2/3 mx-4 flex-auto">
       {isLoading && (
         <h2 className="mb-8 p-6 bg-white rounded-md shadow-lg text-xl font-bold">
           Loading posts...
