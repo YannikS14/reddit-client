@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPosts, fetchPosts } from './postsSlice';
+import { selectActiveSubreddit } from '../subreddits/subredditsSlice';
 import Post from '../post/Post';
 
 export default function Posts() {
   const { posts, isLoading, hasErrors } = useSelector(selectPosts);
+  const activeSubreddit = useSelector(selectActiveSubreddit);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPosts('https://www.reddit.com/r/popular.json'));
-  }, [dispatch]);
+    dispatch(
+      fetchPosts(`https://www.reddit.com/r/${activeSubreddit}.json`),
+    );
+  }, [dispatch, activeSubreddit]);
 
   return (
     <section className="sm:w-2/3 mx-4 flex-auto">

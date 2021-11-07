@@ -1,11 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectSubreddits } from './subredditsSlice';
+import {
+  selectSubreddits,
+  selectActiveSubreddit,
+} from './subredditsSlice';
 import Subreddit from '../subreddit/Subreddit';
 
 export default function Subreddits() {
-  const { subreddits, activeSubreddit } =
-    useSelector(selectSubreddits);
+  const subreddits = useSelector(selectSubreddits);
+  const activeSubreddit = useSelector(selectActiveSubreddit);
 
   return (
     <section className="sm:mx-4 sm:w-1/3 sm:ml-0 flex-auto">

@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 export const subredditsSlice = createSlice({
   name: 'subreddits',
   initialState: {
-    activeSubreddit: 'Home',
+    activeSubreddit: 'Popular',
     subreddits: [
       {
         icon: 'https://api.adorable.io/avatars/25/Home',
-        title: 'Home',
+        title: 'Popular',
       },
       {
         icon: 'https://b.thumbs.redditmedia.com/EndDxMGB-FTZ2MGtjepQ06cQEkZw_YQAsOUudpb9nSQ.png',
@@ -66,7 +66,10 @@ export const subredditsSlice = createSlice({
   },
 });
 
-export const selectSubreddits = (state) => state.subreddits;
+export const selectSubreddits = (state) =>
+  state.subreddits.subreddits;
+export const selectActiveSubreddit = (state) =>
+  state.subreddits.activeSubreddit;
 
 export const { updateActiveSubreddit } = subredditsSlice.actions;
 
