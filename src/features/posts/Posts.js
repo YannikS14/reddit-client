@@ -27,7 +27,9 @@ export default function Posts() {
           Cannot display posts...
         </h2>
       )}
-      {posts &&
+      {!isLoading &&
+        !hasErrors &&
+        posts &&
         posts.map((post) => {
           return <Post post={post} key={post.data.id} />;
         })}
