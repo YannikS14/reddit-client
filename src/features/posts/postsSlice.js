@@ -14,7 +14,63 @@ export const postsSlice = createSlice({
   initialState: {
     isLoading: false,
     hasErrors: false,
-    posts: [],
+    posts: [
+      {
+        data: {
+          id: 1,
+          created: '',
+          ups: '',
+          num_comments: '',
+          title: '',
+          selftext: ' ',
+          author: '',
+        },
+      },
+      {
+        data: {
+          id: 2,
+          created: '',
+          ups: '',
+          num_comments: '',
+          title: '',
+          selftext: ' ',
+          author: '',
+        },
+      },
+      {
+        data: {
+          id: 3,
+          created: '',
+          ups: '',
+          num_comments: '',
+          title: '',
+          selftext: ' ',
+          author: '',
+        },
+      },
+      {
+        data: {
+          id: 4,
+          created: '',
+          ups: '',
+          num_comments: '',
+          title: '',
+          selftext: ' ',
+          author: '',
+        },
+      },
+      {
+        data: {
+          id: 5,
+          created: '',
+          ups: '',
+          num_comments: '',
+          title: '',
+          selftext: ' ',
+          author: '',
+        },
+      },
+    ],
   },
   reducers: {},
   extraReducers: (builder) => {

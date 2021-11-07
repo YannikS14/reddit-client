@@ -1,10 +1,16 @@
 import moment from 'moment';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import Annotation from '../../assets/Annotation';
 import Arrow from '../../assets/Arrow';
+import { useSelector } from 'react-redux';
+import { selectPosts } from '../posts/postsSlice';
 
 export default function Post({ post }) {
+  const { isLoading } = useSelector(selectPosts);
+
   const kFormatter = (num) => {
     return Math.abs(num) > 999
       ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + 'k'
@@ -36,7 +42,7 @@ export default function Post({ post }) {
           />
         </button>
         <p className="my-1.5 text-lg font-bold text-gray-500">
-          {upvotes}
+          {isLoading ? <Skeleton height={24} width={31} /> : upvotes}
         </p>
         <button
           id="downvote"
@@ -54,20 +60,27 @@ export default function Post({ post }) {
 
       <div id="post-content" className="flex-1 overflow-hidden">
         <h3 className="mb-4 text-xl font-semibold text-gray-800">
-          {post.data.title}
+          {isLoading ? <Skeleton /> : post.data.title}
         </h3>
-        {!post.data.is_video && post.data.url && (
+        {!post.data.is_video && post.data.url && isLoading ? (
+          <Skeleton />
+        ) : (
           <img src={post.data.url} alt="" className="rounded-md" />
         )}
-        {post.data.is_video && (
-          <video className="max-h-96" controls>
-            <source
-              src={post.data.secure_media.reddit_video.fallback_url}
-              type="video/mp4"
-            />
-          </video>
-        )}
-        {post.data.selftext && (
+        {post.data.is_video &&
+          (isLoading ? (
+            <Skeleton />
+          ) : (
+            <video className="max-h-96" controls>
+              <source
+                src={post.data.secure_media.reddit_video.fallback_url}
+                type="video/mp4"
+              />
+            </video>
+          ))}
+        {post.data.selftext && isLoading ? (
+          <Skeleton count={4} />
+        ) : (
           <ReactMarkdown
             className="mt-4"
             components={{
@@ -91,9 +104,11 @@ export default function Post({ post }) {
           className="flex justify-between px-8 py-2"
         >
           <div className="font-semibold text-gray-800 text-sm">
-            {post.data.author}
+            {isLoading ? <Skeleton width={100} /> : post.data.author}
           </div>
-          <div className="text-gray-800 text-xs">{postDate}</div>
+          <div className="text-gray-800 text-xs">
+            {isLoading ? <Skeleton width={100} /> : postDate}
+          </div>
           <div className="flex text-gray-800 text-sm">
             <button
               id="comments"
@@ -101,7 +116,7 @@ export default function Post({ post }) {
             >
               <Annotation className="mr-1 transition duration-300" />
             </button>
-            {commentsAmount}
+            {isLoading ? <Skeleton width={75} /> : commentsAmount}
           </div>
         </div>
       </div>
