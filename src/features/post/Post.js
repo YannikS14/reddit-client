@@ -17,31 +17,34 @@ export default function Post({ post }) {
   const [vote, setVote] = useState('');
 
   const handleClick = (e) => {
-    console.log(e);
     vote === e.target.id ? setVote('') : setVote(e.target.id);
   };
 
   return (
     <article className="mb-8 p-6 bg-white rounded-md shadow-lg flex">
       <div id="votes" className="pr-6 flex flex-col items-center">
-        <button id="upvote" onClick={(e) => handleClick(e)}>
+        <button
+          id="upvote"
+          onClick={(e) => handleClick(e)}
+          className="text-gray-500 hover:text-green-500"
+        >
           <Arrow
             className={`transform ${
-              vote === 'upvote'
-                ? 'text-green-500 scale-125'
-                : 'text-gray-500 hover:text-green-500'
+              vote === 'upvote' ? 'text-green-500 scale-125' : ''
             }`}
           />
         </button>
         <p className="my-1.5 text-lg font-bold text-gray-500">
           {upvotes}
         </p>
-        <button id="downvote" onClick={(e) => handleClick(e)}>
+        <button
+          id="downvote"
+          onClick={(e) => handleClick(e)}
+          className="text-gray-500 hover:text-red-500"
+        >
           <Arrow
             className={`transform rotate-180 ${
-              vote === 'downvote'
-                ? 'text-red-500 scale-125'
-                : 'text-gray-500 hover:text-red-500'
+              vote === 'downvote' ? 'text-red-500 scale-125' : ''
             }
             `}
           />
@@ -66,8 +69,11 @@ export default function Post({ post }) {
           </div>
           <div className="text-gray-800 text-xs">{postDate}</div>
           <div className="flex text-gray-800 text-sm">
-            <button id="comments">
-              <Annotation className="mr-1 text-gray-500 hover:text-gray-800" />
+            <button
+              id="comments"
+              className="text-gray-500 hover:text-gray-800"
+            >
+              <Annotation className="mr-1" />
             </button>
             {commentsAmount}
           </div>
