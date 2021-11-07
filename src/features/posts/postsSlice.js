@@ -3,10 +3,8 @@ import axios from 'axios';
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
-  async () => {
-    const response = await axios.get(
-      'https://www.reddit.com/r/popular.json',
-    );
+  async (url) => {
+    const response = await axios.get(url);
     return response.data.data.children;
   },
 );

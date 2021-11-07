@@ -8,7 +8,7 @@ export default function Posts() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(fetchPosts('https://www.reddit.com/r/popular.json'));
   }, [dispatch]);
 
   return (
