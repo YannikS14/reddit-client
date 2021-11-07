@@ -4,7 +4,8 @@ import { selectSubreddits } from './subredditsSlice';
 import Subreddit from '../subreddit/Subreddit';
 
 export default function Subreddits() {
-  const subreddits = useSelector(selectSubreddits);
+  const { subreddits, activeSubreddit } =
+    useSelector(selectSubreddits);
 
   return (
     <section className="sm:mx-4 sm:w-1/3 sm:ml-0 flex-auto">
@@ -16,6 +17,9 @@ export default function Subreddits() {
               <Subreddit
                 subreddit={subreddit}
                 key={subreddit.title}
+                active={
+                  activeSubreddit === subreddit.title ? true : false
+                }
               />
             );
           })}

@@ -1,14 +1,24 @@
 import React from 'react';
+import { updateActiveSubreddit } from '../subreddits/subredditsSlice';
+import { useDispatch } from 'react-redux';
 
-export default function Subreddit({ subreddit }) {
+export default function Subreddit({ subreddit, active }) {
+  const dispatch = useDispatch();
+
   return (
-    <div className="flex items-center py-4">
+    <a
+      href="#"
+      className={`flex items-center p-4 rounded-md hover:text-primary ${
+        active ? 'bg-gray-100' : ''
+      }`}
+      onClick={() => dispatch(updateActiveSubreddit(subreddit.title))}
+    >
       <img
         src={subreddit.icon}
         alt=""
-        className="w-6 h-6 mr-2 rounded-full"
+        className="w-6 h-6 mr-2 border border-gray-500 rounded-full"
       />
       <p className="font-semibold">{subreddit.title}</p>
-    </div>
+    </a>
   );
 }
