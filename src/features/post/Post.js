@@ -55,10 +55,20 @@ export default function Post({ post }) {
         <h3 className="mb-4 text-xl font-semibold text-gray-800">
           {post.data.title}
         </h3>
-        {post.data.url && (
+        {!post.data.is_video && post.data.url && (
           <img src={post.data.url} alt="" className="rounded-md" />
         )}
-        {post.content && <p className="mt-4">{post.content}</p>}
+        {post.data.is_video && (
+          <video className="max-h-96" controls>
+            <source
+              src={post.data.secure_media.reddit_video.fallback_url}
+              type="video/mp4"
+            />
+          </video>
+        )}
+        {post.data.selftext && (
+          <p className="mt-4">{post.data.selftext}</p>
+        )}
         <hr className="mt-4" />
         <div
           id="post-footer"
