@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import Annotation from '../../assets/Annotation';
 import Arrow from '../../assets/Arrow';
 
@@ -67,7 +68,22 @@ export default function Post({ post }) {
           </video>
         )}
         {post.data.selftext && (
-          <p className="mt-4">{post.data.selftext}</p>
+          <ReactMarkdown
+            className="mt-4"
+            components={{
+              a: ({ node, ...props }) => (
+                <a
+                  className="underline hover:text-primary"
+                  {...props}
+                />
+              ),
+              p: ({ node, ...props }) => (
+                <p className="mb-2" {...props}></p>
+              ),
+            }}
+          >
+            {post.data.selftext}
+          </ReactMarkdown>
         )}
         <hr className="mt-4" />
         <div
