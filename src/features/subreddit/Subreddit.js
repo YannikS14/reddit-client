@@ -8,7 +8,7 @@ export default function Subreddit({ subreddit, active }) {
   return (
     <a
       href="#"
-      className={`flex items-center p-4 rounded-md hover:text-primary ${
+      className={`flex items-center p-4 rounded-md transition-colors hover:text-primary ${
         active ? 'bg-gray-100' : ''
       }`}
       onClick={() => dispatch(updateActiveSubreddit(subreddit.title))}

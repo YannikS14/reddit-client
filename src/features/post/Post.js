@@ -22,7 +22,7 @@ export default function Post({ post }) {
   };
 
   return (
-    <article className="mb-8 p-6 bg-white rounded-md shadow-lg flex">
+    <article className="mb-8 p-6 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 flex">
       <div id="votes" className="pr-6 flex flex-col items-center">
         <button
           id="upvote"
@@ -30,7 +30,7 @@ export default function Post({ post }) {
           className="text-gray-500 hover:text-green-500"
         >
           <Arrow
-            className={`transform ${
+            className={`transform transition duration-300 ${
               vote === 'upvote' ? 'text-green-500 scale-125' : ''
             }`}
           />
@@ -44,7 +44,7 @@ export default function Post({ post }) {
           className="text-gray-500 hover:text-red-500"
         >
           <Arrow
-            className={`transform rotate-180 ${
+            className={`transform transition duration-300 rotate-180 ${
               vote === 'downvote' ? 'text-red-500 scale-125' : ''
             }
             `}
@@ -99,7 +99,7 @@ export default function Post({ post }) {
               id="comments"
               className="text-gray-500 hover:text-gray-800"
             >
-              <Annotation className="mr-1" />
+              <Annotation className="mr-1 transition duration-300" />
             </button>
             {commentsAmount}
           </div>
