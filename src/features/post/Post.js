@@ -7,6 +7,7 @@ import Annotation from '../../assets/Annotation';
 import Arrow from '../../assets/Arrow';
 import { useSelector } from 'react-redux';
 import { selectPosts } from '../posts/postsSlice';
+import PostModal from '../PostModal/PostModal';
 
 export default function Post({ post }) {
   const { isLoading } = useSelector(selectPosts);
@@ -22,13 +23,25 @@ export default function Post({ post }) {
   const commentsAmount = kFormatter(post.data.num_comments);
 
   const [vote, setVote] = useState('');
+  const [openModal, setOpenModal] = useState(false);
 
   const handleClick = (e) => {
     vote === e.target.id ? setVote('') : setVote(e.target.id);
   };
 
+  const toggleModal = (e) => {
+    if (
+      e.target === e.currentTarget &&
+      e.target.parentNode.parentNode.parentNode.id !== 'post-modal'
+    )
+      setOpenModal(!openModal);
+  };
+
   return (
-    <article className="mb-8 p-6 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 flex">
+    <article className="mb-8 p-6 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 flex z-20">
+      {openModal && (
+        <PostModal post={post} toggleModal={toggleModal} />
+      )}
       <div id="votes" className="pr-6 flex flex-col items-center">
         <button
           id="upvote"
@@ -59,19 +72,26 @@ export default function Post({ post }) {
       </div>
 
       <div id="post-content" className="flex-1 overflow-hidden">
-        <h3 className="mb-4 text-xl font-semibold text-gray-800">
+        <h3
+          className="mb-4 text-xl font-semibold text-gray-800"
+          onClick={toggleModal}
+        >
           {isLoading ? <Skeleton /> : post.data.title}
         </h3>
         {!post.data.is_video && post.data.url && isLoading ? (
           <Skeleton />
         ) : (
-          <img src={post.data.url} alt="" className="rounded-md" />
+          <img
+            src={post.data.url}
+            alt=""
+            className="rounded-md max-h-80"
+          />
         )}
         {post.data.is_video &&
           (isLoading ? (
             <Skeleton />
           ) : (
-            <video className="max-h-96" controls>
+            <video className="max-h-80" controls>
               <source
                 src={post.data.secure_media.reddit_video.fallback_url}
                 type="video/mp4"
