@@ -3,11 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectPosts, fetchPosts } from './postsSlice';
 import { selectActiveSubreddit } from '../subreddits/subredditsSlice';
 import Post from '../post/Post';
+import { selectSearchText } from '../searchField/searchFieldSlice';
 
 export default function Posts() {
   const { posts, hasErrors } = useSelector(selectPosts);
   const activeSubreddit = useSelector(selectActiveSubreddit);
+  const searchText = useSelector(selectSearchText);
   const dispatch = useDispatch();
+
+  const filteredPosts = posts.filter((post) => {
+    return post.data.title
+      .toLowerCase()
+      .trim()
+      .includes(searchText.toLowerCase().trim());
+  });
 
   useEffect(() => {
     dispatch(
@@ -23,8 +32,8 @@ export default function Posts() {
         </h2>
       )}
       {!hasErrors &&
-        posts &&
-        posts.map((post) => {
+        filteredPosts &&
+        filteredPosts.map((post) => {
           return <Post post={post} key={post.data.id} />;
         })}
     </section>
