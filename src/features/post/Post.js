@@ -137,7 +137,7 @@ export default function Post({ post, className = '' }) {
           <hr className="mt-4" />
           <div
             id="post-footer"
-            className="flex justify-between px-8 py-2"
+            className="flex flex-wrap justify-between px-8 py-2 gap-2"
           >
             <div className="font-semibold text-sm">
               {isLoading ? (

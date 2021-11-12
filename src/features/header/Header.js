@@ -27,7 +27,7 @@ export default function Header() {
             src="reddit-logo.svg"
             alt="reddit logo"
           />
-          <h1 className="pl-2 text-xl font-semibold">
+          <h1 className="pl-2 sm:text-xl font-semibold">
             <span className="font-bold">Reddit</span> Client
           </h1>
         </div>
