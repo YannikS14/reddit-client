@@ -6,7 +6,7 @@ import Subreddits from './features/subreddits/Subreddits';
 
 function App() {
   return (
-    <div className="App bg-gray-100 min-h-screen">
+    <div className="App bg-gray-100 dark:bg-gray-600 dark:text-gray-50 min-h-screen">
       <Header />
       <main className="container mx-auto pt-24 flex flex-col lg:flex-row">
         <Posts />

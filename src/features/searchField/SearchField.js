@@ -16,11 +16,11 @@ export default function SearchField() {
         placeholder="Search Reddit"
         value={searchText}
         onChange={(e) => dispatch(updateSearchText(e.target.value))}
-        className="flex-1 border-solid border-2 border-gray-300 rounded-md pl-10 pr-4 py-2"
+        className="flex-1 border-solid border-2 dark:bg-gray-600 border-gray-300 dark:border-gray-500 rounded-md pl-10 pr-4 py-2"
       ></input>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5 absolute left-4 top-3  text-gray-700"
+        className="h-5 w-5 absolute left-4 top-3 text-gray-700 dark:text-gray-300"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
