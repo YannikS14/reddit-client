@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { selectPosts } from '../posts/postsSlice';
 import PostModal from '../PostModal/PostModal';
 
-export default function Post({ post }) {
+export default function Post({ post, className = '' }) {
   const { isLoading } = useSelector(selectPosts);
 
   const kFormatter = (num) => {
@@ -38,7 +38,9 @@ export default function Post({ post }) {
   };
 
   return (
-    <article className="mb-8 p-6 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 flex z-20">
+    <article
+      className={`mb-8 p-6 bg-white rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 flex z-20 ${className}`}
+    >
       {openModal && (
         <PostModal post={post} toggleModal={toggleModal} />
       )}
