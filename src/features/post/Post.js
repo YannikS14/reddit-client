@@ -8,6 +8,7 @@ import Arrow from '../../assets/Arrow';
 import { useSelector } from 'react-redux';
 import { selectPosts } from '../posts/postsSlice';
 import PostModal from '../PostModal/PostModal';
+import Comments from '../comments/Comments';
 
 export default function Post({ post, className = '' }) {
   const { isLoading } = useSelector(selectPosts);
@@ -24,6 +25,7 @@ export default function Post({ post, className = '' }) {
 
   const [vote, setVote] = useState('');
   const [openModal, setOpenModal] = useState(false);
+  const [toggleComments, setToggleComments] = useState(false);
 
   const handleClick = (e) => {
     vote === e.target.id ? setVote('') : setVote(e.target.id);
@@ -87,7 +89,7 @@ export default function Post({ post, className = '' }) {
 
         <div id="post-content" className="flex-1 overflow-hidden">
           <h3
-            className="mb-4 text-xl font-semibold"
+            className="mb-4 text-xl font-semibold cursor-pointer"
             onClick={toggleModal}
           >
             {isLoading ? <Skeleton /> : post.data.title}
@@ -153,12 +155,19 @@ export default function Post({ post, className = '' }) {
               <button
                 id="comments"
                 className="text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-50"
+                onClick={() => setToggleComments(!toggleComments)}
               >
                 <Annotation className="mr-1 transition duration-300" />
               </button>
               {isLoading ? <Skeleton width={75} /> : commentsAmount}
             </div>
           </div>
+          {toggleComments && (
+            <Comments
+              postSubreddit={post.data.subreddit}
+              postId={post.data.id}
+            />
+          )}
         </div>
       </SkeletonTheme>
     </article>
