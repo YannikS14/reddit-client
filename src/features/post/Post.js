@@ -28,7 +28,9 @@ export default function Post({ post, className = '' }) {
   const [toggleComments, setToggleComments] = useState(false);
 
   const handleClick = (e) => {
-    vote === e.target.id ? setVote('') : setVote(e.target.id);
+    vote === e.target.ariaLabel
+      ? setVote('')
+      : setVote(e.target.ariaLabel);
   };
 
   const toggleModal = (e) => {
@@ -120,13 +122,13 @@ export default function Post({ post, className = '' }) {
       >
         <div id="votes" className="pr-6 flex flex-col items-center">
           <button
-            id="upvote"
             onClick={(e) => handleClick(e)}
             className="text-gray-500 dark:text-gray-300 hover:text-green-500"
+            aria-label="Upvote"
           >
             <Arrow
               className={`transform transition duration-300 ${
-                vote === 'upvote' ? 'text-green-500 scale-125' : ''
+                vote === 'Upvote' ? 'text-green-500 scale-125' : ''
               }`}
             />
           </button>
@@ -138,13 +140,13 @@ export default function Post({ post, className = '' }) {
             )}
           </p>
           <button
-            id="downvote"
             onClick={(e) => handleClick(e)}
             className="text-gray-500 dark:text-gray-300 hover:text-red-500"
+            aria-label="Downvote"
           >
             <Arrow
               className={`transform transition duration-300 rotate-180 ${
-                vote === 'downvote' ? 'text-red-500 scale-125' : ''
+                vote === 'Downvote' ? 'text-red-500 scale-125' : ''
               }
             `}
             />
@@ -152,12 +154,12 @@ export default function Post({ post, className = '' }) {
         </div>
 
         <div id="post-content" className="flex-1 overflow-hidden">
-          <h3
+          <h2
             className="mb-4 text-xl font-semibold cursor-pointer"
             onClick={toggleModal}
           >
             {isLoading ? <Skeleton /> : post.data.title}
-          </h3>
+          </h2>
           {renderPostImage()}
           {renderPostVideo()}
           {renderPostText()}
@@ -179,9 +181,9 @@ export default function Post({ post, className = '' }) {
             </div>
             <div className="flex text-sm">
               <button
-                id="comments"
                 className="text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-50"
                 onClick={() => setToggleComments(!toggleComments)}
+                aria-label="Comments"
               >
                 <Annotation className="mr-1 transition duration-300" />
               </button>
