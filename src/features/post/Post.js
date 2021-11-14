@@ -41,6 +41,70 @@ export default function Post({ post, className = '' }) {
 
   const htmlTag = document.getElementsByTagName('html');
 
+  const renderPostImage = () => {
+    if (isLoading) return <Skeleton />;
+    if (post.data.post_hint === 'image') {
+      return (
+        <img
+          src={post.data.url}
+          alt=""
+          className="rounded-md max-h-80"
+        />
+      );
+    }
+  };
+
+  const renderPostVideo = () => {
+    if (isLoading) return <Skeleton />;
+    if (post.data.is_video) {
+      return (
+        <video className="max-h-80" controls>
+          <source
+            src={post.data.media.reddit_video.fallback_url}
+            type="video/mp4"
+          />
+        </video>
+      );
+    }
+  };
+
+  const renderPostText = () => {
+    if (isLoading) return <Skeleton count={4} />;
+    if (post.data.selftext) {
+      return (
+        <ReactMarkdown
+          className="mt-4"
+          components={{
+            a: ({ node, ...props }) => (
+              <a className="underline hover:text-primary" {...props}>
+                {props.children}
+              </a>
+            ),
+            p: ({ node, ...props }) => (
+              <p className="mb-2" {...props}></p>
+            ),
+          }}
+        >
+          {post.data.selftext}
+        </ReactMarkdown>
+      );
+    }
+  };
+
+  const renderPostLink = () => {
+    if (isLoading) return <Skeleton />;
+    if (post.data.post_hint === 'link') {
+      return (
+        <a
+          href={post.data.url}
+          className="underline hover:text-primary"
+        >
+          {post.data.url}
+        </a>
+      );
+    }
+  };
+
   return (
     <article
       className={`mb-8 p-6 bg-white text-gray-800 dark:bg-gray-700 dark:text-gray-50 rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 flex z-20 ${className}`}
@@ -94,50 +158,10 @@ export default function Post({ post, className = '' }) {
           >
             {isLoading ? <Skeleton /> : post.data.title}
           </h3>
-          {!post.data.is_video && post.data.url && isLoading ? (
-            <Skeleton />
-          ) : (
-            <img
-              src={post.data.url}
-              alt=""
-              className="rounded-md max-h-80"
-            />
-          )}
-          {post.data.is_video &&
-            (isLoading ? (
-              <Skeleton />
-            ) : (
-              <video className="max-h-80" controls>
-                <source
-                  src={
-                    post.data.secure_media.reddit_video.fallback_url
-                  }
-                  type="video/mp4"
-                />
-              </video>
-            ))}
-          {post.data.selftext && isLoading ? (
-            <Skeleton count={4} />
-          ) : (
-            <ReactMarkdown
-              className="mt-4"
-              components={{
-                a: ({ node, ...props }) => (
-                  <a
-                    className="underline hover:text-primary"
-                    {...props}
-                  >
-                    {props.children}
-                  </a>
-                ),
-                p: ({ node, ...props }) => (
-                  <p className="mb-2" {...props}></p>
-                ),
-              }}
-            >
-              {post.data.selftext}
-            </ReactMarkdown>
-          )}
+          {renderPostImage()}
+          {renderPostVideo()}
+          {renderPostText()}
+          {renderPostLink()}
           <hr className="mt-4" />
           <div
             id="post-footer"
