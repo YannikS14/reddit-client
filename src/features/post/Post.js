@@ -126,7 +126,9 @@ export default function Post({ post, className = '' }) {
                   <a
                     className="underline hover:text-primary"
                     {...props}
-                  />
+                  >
+                    {props.children}
+                  </a>
                 ),
                 p: ({ node, ...props }) => (
                   <p className="mb-2" {...props}></p>

@@ -6,9 +6,8 @@ export default function Subreddit({ subreddit, active }) {
   const dispatch = useDispatch();
 
   return (
-    <a
-      href="#"
-      className={`flex items-center p-4 rounded-md transition-colors hover:text-primary ${
+    <button
+      className={`w-full flex items-center p-4 rounded-md transition-colors hover:text-primary ${
         active ? 'bg-gray-100 dark:bg-gray-600' : ''
       }`}
       onClick={() => dispatch(updateActiveSubreddit(subreddit.title))}
@@ -19,6 +18,6 @@ export default function Subreddit({ subreddit, active }) {
         className="w-6 h-6 mr-2 border border-gray-500 rounded-full"
       />
       <p className="font-semibold">{subreddit.title}</p>
-    </a>
+    </button>
   );
 }
