@@ -1,6 +1,6 @@
 import moment from 'moment';
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Annotation from '../../assets/Annotation';
@@ -74,21 +74,20 @@ export default function Post({ post, className = '' }) {
     if (isLoading) return <Skeleton count={4} />;
     if (post.data.selftext) {
       return (
-        <ReactMarkdown
-          className="mt-4"
-          components={{
-            a: ({ node, ...props }) => (
-              <a className="underline hover:text-primary" {...props}>
-                {props.children}
-              </a>
-            ),
-            p: ({ node, ...props }) => (
-              <p className="mb-2" {...props}></p>
-            ),
+        <Markdown
+          options={{
+            overrides: {
+              a: {
+                props: { className: 'underline hover:text-primary' },
+              },
+              p: {
+                props: { className: 'mb-2' },
+              },
+            },
           }}
         >
           {post.data.selftext}
-        </ReactMarkdown>
+        </Markdown>
       );
     }
   };
