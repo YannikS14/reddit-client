@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments component matches the snapshot 1`] = `
+<div
+  className="mt-2"
+  id="post-comments"
+/>
+`;

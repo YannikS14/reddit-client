@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment component matches the snapshot 1`] = `
+<div
+  className="mb-2 px-8 py-3 bg-gray-100 dark:bg-gray-600 rounded-md hover:shadow"
+  id="comment"
+>
+  <div
+    className="flex justify-between pb-2"
+  >
+    <div
+      className="font-semibold text-sm"
+    >
+      Testauthor
+    </div>
+    <div
+      className="text-xs"
+    >
+      4 months ago
+    </div>
+  </div>
+  <p>
+    This is a test comment body.
+  </p>
+</div>
+`;
