@@ -41,7 +41,7 @@ export default function Post({ post, className = '' }) {
       setOpenModal(!openModal);
   };
 
-  const htmlTag = document.getElementsByTagName('html');
+  const rootDiv = document.getElementById('root');
 
   const renderPostImage = () => {
     if (isLoading) return <Skeleton />;
@@ -114,10 +114,8 @@ export default function Post({ post, className = '' }) {
         <PostModal post={post} toggleModal={toggleModal} />
       )}
       <SkeletonTheme
-        baseColor={htmlTag[0].className === 'dark' ? '#4b5563' : ''}
-        highlightColor={
-          htmlTag[0].className === 'dark' ? '#6b7280' : ''
-        }
+        baseColor={rootDiv.className === 'dark' ? '#4b5563' : ''}
+        highlightColor={rootDiv.className === 'dark' ? '#6b7280' : ''}
       >
         <div id="votes" className="pr-6 flex flex-col items-center">
           <button
