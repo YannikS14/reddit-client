@@ -7,11 +7,13 @@ import Annotation from '../../assets/Annotation';
 import Arrow from '../../assets/Arrow';
 import { useSelector } from 'react-redux';
 import { selectPosts } from '../posts/postsSlice';
+import { selectTheme } from '../../appSlice';
 import PostModal from '../PostModal/PostModal';
 import Comments from '../comments/Comments';
 
 export default function Post({ post, className = '' }) {
   const { isLoading } = useSelector(selectPosts);
+  const theme = useSelector(selectTheme);
 
   const kFormatter = (num) => {
     return Math.abs(num) > 999
@@ -40,8 +42,6 @@ export default function Post({ post, className = '' }) {
     )
       setOpenModal(!openModal);
   };
-
-  const rootDiv = document.getElementById('root');
 
   const renderPostImage = () => {
     if (isLoading) return <Skeleton />;
@@ -114,8 +114,8 @@ export default function Post({ post, className = '' }) {
         <PostModal post={post} toggleModal={toggleModal} />
       )}
       <SkeletonTheme
-        baseColor={rootDiv.className === 'dark' ? '#4b5563' : ''}
-        highlightColor={rootDiv.className === 'dark' ? '#6b7280' : ''}
+        baseColor={theme === 'dark' ? '#4b5563' : ''}
+        highlightColor={theme === 'dark' ? '#6b7280' : ''}
       >
         <div id="votes" className="pr-6 flex flex-col items-center">
           <button

@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { updateTheme } from '../../appSlice';
 
 export default function DarkModeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const rootDiv = document.getElementById('root');
-
-    if (isDark) {
-      rootDiv.classList.add('dark');
-    } else {
-      rootDiv.classList.remove('dark');
-    }
-  }, [isDark]);
   return (
     <div
       id="dark-mode-toggle"
@@ -20,7 +13,7 @@ export default function DarkModeToggle() {
       <button
         id="light-mode"
         className="px-4 py-2 text-primary dark:text-gray-50"
-        onClick={() => setIsDark(false)}
+        onClick={() => dispatch(updateTheme('light'))}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +33,7 @@ export default function DarkModeToggle() {
       <button
         id="dark-mode"
         className="px-4 py-2 dark:text-primary"
-        onClick={() => setIsDark(true)}
+        onClick={() => dispatch(updateTheme('dark'))}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
