@@ -11,7 +11,10 @@ export default function Subreddits() {
   const activeSubreddit = useSelector(selectActiveSubreddit);
 
   return (
-    <section className="lg:mx-4 lg:w-1/3 lg:ml-0 flex-auto">
+    <section
+      className="lg:mx-4 lg:w-1/3 lg:ml-0 flex-auto"
+      role="subreddits"
+    >
       <div className="p-6 bg-white dark:bg-gray-700 sm:rounded-md shadow-lg">
         <h2 className="text-xl font-bold">Subreddits</h2>
         <div className="mt-4">

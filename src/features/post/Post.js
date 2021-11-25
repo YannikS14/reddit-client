@@ -99,6 +99,7 @@ export default function Post({ post, className = '' }) {
         <a
           href={post.data.url}
           className="underline hover:text-primary"
+          data-testid="post-link"
         >
           {post.data.url}
         </a>
