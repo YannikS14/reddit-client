@@ -1,37 +1,31 @@
 import React from 'react';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 import App from './App';
 import { store } from './app/store';
-import Header from './features/header/Header';
-import Posts from './features/posts/Posts';
-import Subreddits from './features/subreddits/Subreddits';
 
-describe('App component', () => {
+describe('App', () => {
+  beforeEach(() => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+    );
+  });
+
+  it('initially renders with light mode', () => {
+    expect(screen.getByTestId('app-wrapper')).not.toHaveClass('dark');
+  });
+
   it('renders a <Header /> component', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Header)).toHaveLength(1);
+    expect(screen.getByRole('banner')).toBeInTheDocument();
   });
 
   it('renders a <Posts /> component', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Posts)).toHaveLength(1);
+    expect(screen.getByRole('posts')).toBeInTheDocument();
   });
 
   it('renders a <Subreddits /> component', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(Subreddits)).toHaveLength(1);
-  });
-
-  it('matches the snapshot', () => {
-    const tree = renderer
-      .create(
-        <Provider store={store}>
-          <App />
-        </Provider>,
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(screen.getByRole('subreddits')).toBeInTheDocument();
   });
 });
