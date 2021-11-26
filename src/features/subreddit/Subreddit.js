@@ -2,7 +2,10 @@ import React from 'react';
 import { updateActiveSubreddit } from '../subreddits/subredditsSlice';
 import { useDispatch } from 'react-redux';
 
-export default function Subreddit({ subreddit, active }) {
+export default function Subreddit({
+  subreddit = { icon: '', title: '' },
+  active,
+}) {
   const dispatch = useDispatch();
 
   return (
