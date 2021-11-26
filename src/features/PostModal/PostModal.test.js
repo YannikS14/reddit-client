@@ -120,6 +120,4 @@ describe('PostModal component', () => {
 
     expect(mockToggleModal).toHaveBeenCalled();
   });
-
-  // TODO: Upvote / Downvote Button testen
 });
