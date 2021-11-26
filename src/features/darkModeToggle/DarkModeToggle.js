@@ -12,6 +12,7 @@ export default function DarkModeToggle() {
     >
       <button
         id="light-mode"
+        data-testid="btn-light-mode"
         className="px-4 py-2 text-primary dark:text-gray-50"
         onClick={() => dispatch(updateTheme('light'))}
       >
@@ -32,6 +33,7 @@ export default function DarkModeToggle() {
       </button>
       <button
         id="dark-mode"
+        data-testid="btn-dark-mode"
         className="px-4 py-2 dark:text-primary"
         onClick={() => dispatch(updateTheme('dark'))}
       >

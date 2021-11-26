@@ -7,6 +7,7 @@ exports[`DarkModeToggle component matches the snapshot 1`] = `
 >
   <button
     className="px-4 py-2 text-primary dark:text-gray-50"
+    data-testid="btn-light-mode"
     id="light-mode"
     onClick={[Function]}
   >
@@ -27,6 +28,7 @@ exports[`DarkModeToggle component matches the snapshot 1`] = `
   </button>
   <button
     className="px-4 py-2 dark:text-primary"
+    data-testid="btn-dark-mode"
     id="dark-mode"
     onClick={[Function]}
   >
