@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subreddit component matches the snapshot 1`] = `
+<button
+  className="w-full flex items-center p-4 rounded-md transition-colors hover:text-primary "
+  onClick={[Function]}
+>
+  <img
+    alt=""
+    className="w-6 h-6 mr-2 border border-gray-500 rounded-full"
+    src=""
+  />
+  <p
+    className="font-semibold"
+  >
+    
+  </p>
+</button>
+`;
