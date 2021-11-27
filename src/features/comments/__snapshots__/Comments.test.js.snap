@@ -3,6 +3,7 @@
 exports[`Comments component matches the snapshot 1`] = `
 <div
   className="mt-2"
+  data-testid="comments-wrapper"
   id="post-comments"
 />
 `;

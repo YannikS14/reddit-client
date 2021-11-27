@@ -44,7 +44,7 @@ exports[`Posts component matches the snapshot 1`] = `
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
-            "
+    "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -156,7 +156,7 @@ exports[`Posts component matches the snapshot 1`] = `
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
-            "
+    "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -268,7 +268,7 @@ exports[`Posts component matches the snapshot 1`] = `
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
-            "
+    "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -380,7 +380,7 @@ exports[`Posts component matches the snapshot 1`] = `
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
-            "
+    "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -492,7 +492,7 @@ exports[`Posts component matches the snapshot 1`] = `
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
-            "
+    "
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

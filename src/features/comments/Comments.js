@@ -27,7 +27,11 @@ export default function Comments({ postSubreddit, postId }) {
   }, [postSubreddit, postId]);
 
   return (
-    <div id="post-comments" className="mt-2">
+    <div
+      id="post-comments"
+      className="mt-2"
+      data-testid="comments-wrapper"
+    >
       {isLoading && <Skeleton count={3} />}
       {hasErrors && (
         <h2 className="mb-8 p-6 bg-white rounded-md shadow-lg text-xl text-red-500 font-bold">
