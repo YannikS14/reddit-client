@@ -4,36 +4,28 @@ import Markdown from 'markdown-to-jsx';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Annotation from '../../assets/Annotation';
-import Arrow from '../../assets/Arrow';
 import { useSelector } from 'react-redux';
 import { selectPosts } from '../posts/postsSlice';
 import { selectTheme } from '../../appSlice';
 import PostModal from '../PostModal/PostModal';
 import Comments from '../comments/Comments';
+import Votes from '../votes/Votes';
+
+export const kFormatter = (num) => {
+  return Math.abs(num) > 999
+    ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + 'k'
+    : Math.sign(num) * Math.abs(num);
+};
 
 export default function Post({ post, className = '' }) {
   const { isLoading } = useSelector(selectPosts);
   const theme = useSelector(selectTheme);
 
-  const kFormatter = (num) => {
-    return Math.abs(num) > 999
-      ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + 'k'
-      : Math.sign(num) * Math.abs(num);
-  };
-
   const postDate = moment(post.data.created * 1000).fromNow();
-  const upvotes = kFormatter(post.data.ups);
   const commentsAmount = kFormatter(post.data.num_comments);
 
-  const [vote, setVote] = useState('');
   const [openModal, setOpenModal] = useState(false);
   const [toggleComments, setToggleComments] = useState(false);
-
-  const handleClick = (e) => {
-    vote === e.target.ariaLabel
-      ? setVote('')
-      : setVote(e.target.ariaLabel);
-  };
 
   const toggleModal = (e) => {
     if (
@@ -118,38 +110,7 @@ export default function Post({ post, className = '' }) {
         baseColor={theme === 'dark' ? '#4b5563' : ''}
         highlightColor={theme === 'dark' ? '#6b7280' : ''}
       >
-        <div id="votes" className="pr-6 flex flex-col items-center">
-          <button
-            onClick={(e) => handleClick(e)}
-            className="text-gray-500 dark:text-gray-300 hover:text-green-500"
-            aria-label="Upvote"
-          >
-            <Arrow
-              className={`transform transition duration-300 ${
-                vote === 'Upvote' ? 'text-green-500 scale-125' : ''
-              }`}
-            />
-          </button>
-          <p className="my-1.5 text-lg font-bold">
-            {isLoading ? (
-              <Skeleton height={24} width={31} />
-            ) : (
-              upvotes
-            )}
-          </p>
-          <button
-            onClick={(e) => handleClick(e)}
-            className="text-gray-500 dark:text-gray-300 hover:text-red-500"
-            aria-label="Downvote"
-          >
-            <Arrow
-              className={`transform transition duration-300 rotate-180 ${
-                vote === 'Downvote' ? 'text-red-500 scale-125' : ''
-              }
-            `}
-            />
-          </button>
-        </div>
+        <Votes votes={post.data.ups} isLoading={isLoading} />
 
         <div id="post-content" className="flex-1 overflow-hidden">
           <h2
