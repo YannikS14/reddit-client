@@ -22,10 +22,10 @@ describe('App', () => {
   });
 
   it('renders a <Posts /> component', () => {
-    expect(screen.getByRole('posts')).toBeInTheDocument();
+    expect(screen.getByLabelText('posts')).toBeInTheDocument();
   });
 
   it('renders a <Subreddits /> component', () => {
-    expect(screen.getByRole('subreddits')).toBeInTheDocument();
+    expect(screen.getByLabelText('subreddits')).toBeInTheDocument();
   });
 });

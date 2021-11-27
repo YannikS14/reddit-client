@@ -2,8 +2,8 @@
 
 exports[`Posts component matches the snapshot 1`] = `
 <section
+  aria-label="posts"
   className="lg:w-2/3 mx-4 flex-auto"
-  role="posts"
 >
   <article
     className="mb-8 p-6 bg-white text-gray-800 dark:bg-gray-700 dark:text-gray-50 rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 flex z-20 "
