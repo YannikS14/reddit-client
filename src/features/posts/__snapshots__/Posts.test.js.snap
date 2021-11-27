@@ -13,12 +13,13 @@ exports[`Posts component matches the snapshot 1`] = `
       id="votes"
     >
       <button
-        aria-label="Upvote"
+        aria-label="upvote"
         className="text-gray-500 dark:text-gray-300 hover:text-green-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 "
+          data-testid="upvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -38,13 +39,14 @@ exports[`Posts component matches the snapshot 1`] = `
         0
       </p>
       <button
-        aria-label="Downvote"
+        aria-label="downvote"
         className="text-gray-500 dark:text-gray-300 hover:text-red-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
     "
+          data-testid="downvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -125,12 +127,13 @@ exports[`Posts component matches the snapshot 1`] = `
       id="votes"
     >
       <button
-        aria-label="Upvote"
+        aria-label="upvote"
         className="text-gray-500 dark:text-gray-300 hover:text-green-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 "
+          data-testid="upvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -150,13 +153,14 @@ exports[`Posts component matches the snapshot 1`] = `
         0
       </p>
       <button
-        aria-label="Downvote"
+        aria-label="downvote"
         className="text-gray-500 dark:text-gray-300 hover:text-red-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
     "
+          data-testid="downvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -237,12 +241,13 @@ exports[`Posts component matches the snapshot 1`] = `
       id="votes"
     >
       <button
-        aria-label="Upvote"
+        aria-label="upvote"
         className="text-gray-500 dark:text-gray-300 hover:text-green-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 "
+          data-testid="upvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -262,13 +267,14 @@ exports[`Posts component matches the snapshot 1`] = `
         0
       </p>
       <button
-        aria-label="Downvote"
+        aria-label="downvote"
         className="text-gray-500 dark:text-gray-300 hover:text-red-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
     "
+          data-testid="downvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -349,12 +355,13 @@ exports[`Posts component matches the snapshot 1`] = `
       id="votes"
     >
       <button
-        aria-label="Upvote"
+        aria-label="upvote"
         className="text-gray-500 dark:text-gray-300 hover:text-green-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 "
+          data-testid="upvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -374,13 +381,14 @@ exports[`Posts component matches the snapshot 1`] = `
         0
       </p>
       <button
-        aria-label="Downvote"
+        aria-label="downvote"
         className="text-gray-500 dark:text-gray-300 hover:text-red-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
     "
+          data-testid="downvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -461,12 +469,13 @@ exports[`Posts component matches the snapshot 1`] = `
       id="votes"
     >
       <button
-        aria-label="Upvote"
+        aria-label="upvote"
         className="text-gray-500 dark:text-gray-300 hover:text-green-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 "
+          data-testid="upvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -486,13 +495,14 @@ exports[`Posts component matches the snapshot 1`] = `
         0
       </p>
       <button
-        aria-label="Downvote"
+        aria-label="downvote"
         className="text-gray-500 dark:text-gray-300 hover:text-red-500"
         onClick={[Function]}
       >
         <svg
           className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
     "
+          data-testid="downvote-arrow"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

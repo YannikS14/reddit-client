@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Votes component matches the snapshot 1`] = `
+<div
+  className="pr-6 flex flex-col items-center"
+  id="votes"
+>
+  <button
+    aria-label="upvote"
+    className="text-gray-500 dark:text-gray-300 hover:text-green-500"
+    onClick={[Function]}
+  >
+    <svg
+      className="h-6 w-6 pointer-events-none transform transition duration-300 "
+      data-testid="upvote-arrow"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+      />
+    </svg>
+  </button>
+  <p
+    className="my-1.5 text-lg font-bold"
+  >
+    123
+  </p>
+  <button
+    aria-label="downvote"
+    className="text-gray-500 dark:text-gray-300 hover:text-red-500"
+    onClick={[Function]}
+  >
+    <svg
+      className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
+    "
+      data-testid="downvote-arrow"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+      />
+    </svg>
+  </button>
+</div>
+`;
