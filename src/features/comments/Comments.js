@@ -29,6 +29,11 @@ export default function Comments({ postSubreddit, postId }) {
   return (
     <div id="post-comments" className="mt-2">
       {isLoading && <Skeleton count={3} />}
+      {hasErrors && (
+        <h2 className="mb-8 p-6 bg-white rounded-md shadow-lg text-xl text-red-500 font-bold">
+          Cannot display comments...
+        </h2>
+      )}
       {!hasErrors &&
         !isLoading &&
         comments.slice(0, 10).map((comment) => {
