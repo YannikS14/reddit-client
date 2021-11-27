@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post component matches the snapshot 1`] = `
+<article
+  className="mb-8 p-6 bg-white text-gray-800 dark:bg-gray-700 dark:text-gray-50 rounded-md shadow-lg hover:shadow-xl transition-shadow duration-300 flex z-20 "
+>
+  <div
+    className="pr-6 flex flex-col items-center"
+    id="votes"
+  >
+    <button
+      aria-label="Upvote"
+      className="text-gray-500 dark:text-gray-300 hover:text-green-500"
+      onClick={[Function]}
+    >
+      <svg
+        className="h-6 w-6 pointer-events-none transform transition duration-300 "
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+      </svg>
+    </button>
+    <p
+      className="my-1.5 text-lg font-bold"
+    >
+      123.5k
+    </p>
+    <button
+      aria-label="Downvote"
+      className="text-gray-500 dark:text-gray-300 hover:text-red-500"
+      onClick={[Function]}
+    >
+      <svg
+        className="h-6 w-6 pointer-events-none transform transition duration-300 rotate-180 
+    "
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+      </svg>
+    </button>
+  </div>
+  <div
+    className="flex-1 overflow-hidden"
+    id="post-content"
+  >
+    <h2
+      className="mb-4 text-xl font-semibold cursor-pointer"
+      onClick={[Function]}
+    >
+      Test Title
+    </h2>
+    <img
+      alt=""
+      className="rounded-md max-h-80"
+      src="https://linktoimage.test"
+    />
+    <video
+      className="max-h-80"
+      controls={true}
+    >
+      <source
+        src="https://linktovideo.test"
+        type="video/mp4"
+      />
+    </video>
+    <hr
+      className="mt-4"
+    />
+    <div
+      className="flex flex-wrap justify-between px-8 py-2 gap-2"
+      id="post-footer"
+    >
+      <div
+        className="font-semibold text-sm"
+      >
+        Test author
+      </div>
+      <div
+        className="text-xs"
+      >
+        52 years ago
+      </div>
+      <div
+        className="flex text-sm"
+      >
+        <button
+          aria-label="Comments"
+          className="text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-50"
+          onClick={[Function]}
+        >
+          <svg
+            className="h-6 w-6 pointer-events-none mr-1 transition duration-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+            />
+          </svg>
+        </button>
+        123
+      </div>
+    </div>
+  </div>
+</article>
+`;
