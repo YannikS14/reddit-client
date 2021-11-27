@@ -8,38 +8,38 @@ export default function Votes({ votes, isLoading }) {
   const [vote, setVote] = useState('');
   const upvotes = kFormatter(votes);
 
-  const handleClick = (e) => {
-    vote === e.target.ariaLabel
-      ? setVote('')
-      : setVote(e.target.ariaLabel);
+  const handleClick = (targetBtn) => {
+    vote === targetBtn ? setVote('') : setVote(targetBtn);
   };
 
   return (
     <div id="votes" className="pr-6 flex flex-col items-center">
       <button
-        onClick={(e) => handleClick(e)}
+        onClick={() => handleClick('upvote')}
         className="text-gray-500 dark:text-gray-300 hover:text-green-500"
-        aria-label="Upvote"
+        aria-label="upvote"
       >
         <Arrow
           className={`transform transition duration-300 ${
-            vote === 'Upvote' ? 'text-green-500 scale-125' : ''
+            vote === 'upvote' ? 'text-green-500 scale-125' : ''
           }`}
+          testId="upvote-arrow"
         />
       </button>
       <p className="my-1.5 text-lg font-bold">
         {isLoading ? <Skeleton height={24} width={31} /> : upvotes}
       </p>
       <button
-        onClick={(e) => handleClick(e)}
+        onClick={() => handleClick('downvote')}
         className="text-gray-500 dark:text-gray-300 hover:text-red-500"
-        aria-label="Downvote"
+        aria-label="downvote"
       >
         <Arrow
           className={`transform transition duration-300 rotate-180 ${
-            vote === 'Downvote' ? 'text-red-500 scale-125' : ''
+            vote === 'downvote' ? 'text-red-500 scale-125' : ''
           }
     `}
+          testId="downvote-arrow"
         />
       </button>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Arrow({ className }) {
+export default function Arrow({ className, testId }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +8,7 @@ export default function Arrow({ className }) {
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
+      data-testid={testId}
     >
       <path
         strokeLinecap="round"
