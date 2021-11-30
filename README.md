@@ -49,7 +49,7 @@ This project had the following requirements:
 ### Links
 
 - Solution URL: [https://github.com/YannikS14/reddit-client](https://github.com/YannikS14/reddit-client)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://yanniks14.github.io/reddit-client/](https://yanniks14.github.io/reddit-client/)
 
 ## The project
 
